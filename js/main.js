@@ -11,9 +11,9 @@ var explorer = "https://etherscan.io";
 
   if(typeof web3 !== 'undefined'){
     window.web3 = new Web3(web3.currentProvider);
-  }
 
-  startApp();
+    startApp();
+  }
 
 
 }, 1000);
