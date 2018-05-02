@@ -1,11 +1,11 @@
-var contractAddress = '0xdc7c743110Ec689d82f050302319AE27aF84f8fa';
-var abi = [{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"comment","type":"string"},{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"count","type":"uint256"}],"name":"Commented","type":"event"},{"constant":false,"inputs":[{"name":"comment","type":"string"}],"name":"makeComment","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"blockByCounter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"content","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numComments","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
-var declaration;
-var myAddr;
-var startingBlock;
-var explorer = "https://etherscan.io";
-
 setInterval(function(){
+  var contractAddress = '0xdc7c743110Ec689d82f050302319AE27aF84f8fa';
+  var abi = [{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"comment","type":"string"},{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"count","type":"uint256"}],"name":"Commented","type":"event"},{"constant":false,"inputs":[{"name":"comment","type":"string"}],"name":"makeComment","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"blockByCounter","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"content","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numComments","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+  var declaration;
+  var myAddr;
+  var startingBlock;
+  var explorer = "https://etherscan.io";
+  
   window.addEventListener('load', function(){
     if(typeof web3 !== 'undefined'){
       window.web3 = new Web3(web3.currentProvider);
