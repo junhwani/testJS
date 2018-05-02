@@ -8,17 +8,15 @@ var declaration;
 var startingBlock;
 var explorer = "https://etherscan.io";
 
-window.addEventListener('load', function(){
+
   if(typeof web3 !== 'undefined'){
     window.web3 = new Web3(web3.currentProvider);
-  } else{
-    console.log('No web3? You should consider trying MetaMask!');
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
 
   startApp();
 
-});
+
+}, 1000);
 
 function startApp(){
 
@@ -38,5 +36,3 @@ function startApp(){
   });
 
 }
-
-}, 1000);
