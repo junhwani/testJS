@@ -48,7 +48,7 @@
       web3.eth.getAccounts(function(err,r){
         if (!err) {
           myAddr = r[0];
-          document.getElementById('accountAddr').innerHTML = getLink(myAddr);
+          document.getElementById('accountAddr').innerHTML = myAddr;
         } else {
           console.log(err);
         }
