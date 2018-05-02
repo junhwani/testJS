@@ -25,18 +25,15 @@ function startApp(){
   declaration = web3.eth.contract(abi).at(contractAddress);
 
   web3.eth.getAccounts(function(e,address){
-    myAddr = address;
+    myAddr = address[0];
 
     web3.eth.getBalance(myAddr, function(e, balance){
 
+      document.getElementById('accountAddr').innerHTML = myAddr;
+      document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
 
-      if(((myAddr != null) && (savedAddress != myAddr)) || (savedBalances != balance)){
-        document.getElementById('accountAddr').innerHTML = myAddr;
-        document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
-
-        savedAddress = myAddr;
-        savedBalances = balance;
-      }
+      savedAddress = myAddr;
+      savedBalances = balance;
 
     });
 
