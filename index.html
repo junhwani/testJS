@@ -10,13 +10,13 @@
       <li>나의 어카운트 주소 : <span id="accountAddr"></span> </li>
       <li>나의 이더 잔액 : <span id="accountBal"></span> </li>
       <li>이더 보내기 <br>
-        <button onclick="transaction()">이더 전송</button>
+        <button id="myBtn">이더 전송</button>
       </li>
     </ul>
 
     <div class="modal", id="myModal">
       <div class="modal-content">
-        <span cloass="close">&times;</span>
+        <span class="close">&times;</span>
         <ul>
           <li>보낼 주소 : <input id="receive_address" type="text"></li>
           <li>보낼 이더 : <input id="ethAmount" type="number"></li>
