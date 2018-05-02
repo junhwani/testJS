@@ -25,24 +25,13 @@ function startApp(){
   declaration = web3.eth.contract(abi).at(contractAddress);
 
   web3.eth.getCoinbase(function(e, address){
-    document.getElementById("accountAddr").innerHTML = address;
-  });
+    web3.eth.getBalance(address, function(e, balance){
 
-/*
-  web3.eth.getAccounts(function(e,address){
-    myAddr = address[0];
-
-    web3.eth.getBalance(myAddr, function(e, balance){
-
-      document.getElementById('accountAddr').innerHTML = myAddr;
-      document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
-
-      savedAddress = myAddr;
-      savedBalances = balance;
+      document.getElementById("accountAddr").innerHTML = address;
+      document.getElementById("accountBal").innerHTML = balance;
 
     });
 
   });
-  */
 
 }
