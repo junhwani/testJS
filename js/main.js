@@ -26,7 +26,7 @@ setInterval(function(){
 
     web3.eth.getCoinbase(function(e,address){
 
-      web3.eth.getBalance(myAddr, function(e, balance){
+      web3.eth.getBalance(address, function(e, balance){
 
         if(((address != null) && (savedAddress != address)) || (savedBalances != balance)){
           document.getElementById('accountAddr').innerHTML = address;
