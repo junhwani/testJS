@@ -46,7 +46,7 @@
       declaration = web3.eth.contract(abi).at(contractAddress);
 
       web3.eth.getAccounts(function(e, address){
-        web3.eth.getBalance(address, function(e, balances){
+        web3.eth.getBalance(address[0], function(e, balances){
           document.getElementById('accountAddr').innerHTML = address[0];
           document.getElementById('accountBal').innerHTML = balances;
         })
