@@ -28,7 +28,7 @@ function startApp(){
     web3.eth.getBalance(address, function(e, balance){
 
       document.getElementById("accountAddr").innerHTML = address;
-      document.getElementById("accountBal").innerHTML = balance;
+      document.getElementById("accountBal").innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2)+" ETH";
 
     });
 
