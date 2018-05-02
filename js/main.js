@@ -3,34 +3,35 @@ var abi = [{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"
 var declaration;
 var myAddr;
 var startingBlock;
-var maxComments = 200;
-//var explorer = "https://ropsten.etherscan.io";
 var explorer = "https://etherscan.io";
 
-window.addEventListener('load', function(){
-  if(typeof web3 !== 'undefined'){
-    window.web3 = new Web3(web3.currentProvider);
-  } else{
-    console.log('No web3? You should consider trying MetaMask!');
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+setInterval(function(){
+  window.addEventListener('load', function(){
+    if(typeof web3 !== 'undefined'){
+      window.web3 = new Web3(web3.currentProvider);
+    } else{
+      console.log('No web3? You should consider trying MetaMask!');
+      window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    }
+
+    startApp();
+  });
+
+  function startApp(){
+    declaration = web3.eth.contract(abi).at(contractAddress);
+
+    web3.eth.getAccounts(function(e,r){
+      if(!e){
+        myAddr = r[0];
+        document.getElementById('accountAddr').innerHTML = myAddr;
+
+        web3.eth.getBalance(myAddr, function(e, balance){
+          document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
+        });
+      } else{
+        console.log(err);
+      }
+    });
   }
 
-  startApp();
-});
-
-function startApp(){
-  declaration = web3.eth.contract(abi).at(contractAddress);
-
-  web3.eth.getAccounts(function(e,r){
-    if(!e){
-      myAddr = r[0];
-      document.getElementById('accountAddr').innerHTML = myAddr;
-
-      web3.eth.getBalance(myAddr, function(e, balance){
-        document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
-      });
-    } else{
-      console.log(err);
-    }
-  });
-}
+}, 1000);
