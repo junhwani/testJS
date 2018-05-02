@@ -45,27 +45,14 @@
     function startApp(){
       declaration = web3.eth.contract(abi).at(contractAddress);
 
-      web3.eth.getCoinbase(function(e, address){
+      web3.eth.getAccounts(function(e, address){
         web3.eth.getBalance(address, function(e, balances){
-          document.getElementById('accountAddr').innerHTML = address;
+          document.getElementById('accountAddr').innerHTML = address[0];
           document.getElementById('accountBal').innerHTML = balances;
         })
-      })
-
-      web3.eth.getAccounts(function(e,r){
-        if(!e){
-          myAddr = r[0];
-          document.getElementById('accountAddr').innerHTML = myAddr;
-        } else{
-          console.log(err);
-        }
       });
 
-      web3.eth.getBalance(myAddr, function(e,r){
-        if(!e){
-          document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(r), 'ether')).toFixed(2) + " ETH";
-        }
-      });
+
     }
 
   </script>
