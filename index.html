@@ -48,6 +48,10 @@
         if(!e){
           myAddr = r[0];
           document.getElementById('accountAddr').innerHTML = myAddr;
+
+          web3.eth.getBalance(myAddr, function(e, balance){
+            document.getElementById('accountBal').innerHTML = balance;
+          });
         } else{
           console.log(err);
         }
