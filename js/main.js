@@ -12,12 +12,12 @@ setInterval(function(){
   window.addEventListener('load', function(){
     if(typeof web3 !== 'undefined'){
       window.web3 = new Web3(web3.currentProvider);
-      startApp();
     } else{
       console.log('No web3? You should consider trying MetaMask!');
       window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
     }
 
+    startApp();
 
   });
 
@@ -25,15 +25,17 @@ setInterval(function(){
 
     declaration = web3.eth.contract(abi).at(contractAddress);
 
-    web3.eth.getCoinbase(function(e,address){
+    web3.eth.getAccounts(function(e,address){
+      myAddr = address;
 
-      web3.eth.getBalance(address, function(e, balance){
+      web3.eth.getBalance(myAddr, function(e, balance){
 
-        if(((address != null) && (savedAddress != address)) || (savedBalances != balance)){
-          document.getElementById('accountAddr').innerHTML = address;
+
+        if(((myAddr != null) && (savedAddress != myAddr)) || (savedBalances != balance)){
+          document.getElementById('accountAddr').innerHTML = myAddr;
           document.getElementById('accountBal').innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2) + "ETH";
 
-          savedAddress = address;
+          savedAddress = myAddr;
           savedBalances = balance;
         }
 
