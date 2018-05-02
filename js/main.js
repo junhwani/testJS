@@ -12,7 +12,20 @@ var explorer = "https://etherscan.io";
   if(typeof web3 !== 'undefined'){
     window.web3 = new Web3(web3.currentProvider);
 
-    startApp();
+    declaration = web3.eth.contract(abi).at(contractAddress);
+
+    web3.eth.getCoinbase(function(e, address){
+      web3.eth.getBalance(address, function(e, balance){
+
+        document.getElementById("accountAddr").innerHTML = address;
+        document.getElementById("accountBal").innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2)+" ETH";
+
+        savedAddress = address;
+        savedBalances = balance;
+
+      });
+
+    });
   }
 
 
@@ -20,19 +33,6 @@ var explorer = "https://etherscan.io";
 
 function startApp(){
 
-  declaration = web3.eth.contract(abi).at(contractAddress);
 
-  web3.eth.getCoinbase(function(e, address){
-    web3.eth.getBalance(address, function(e, balance){
-
-      document.getElementById("accountAddr").innerHTML = address;
-      document.getElementById("accountBal").innerHTML = Number(web3.fromWei(Number(balance), 'ether')).toFixed(2)+" ETH";
-
-      savedAddress = address;
-      savedBalances = balance;
-
-    });
-
-  });
 
 }
