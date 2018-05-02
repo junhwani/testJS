@@ -45,13 +45,14 @@
     function startApp(){
       declaration = web3.eth.contract(abi).at(contractAddress);
 
-      web3.eth.getAccounts(function(e, address){
-        web3.eth.getBalance(address[0], function(e, balances){
-          document.getElementById('accountAddr').innerHTML = address[0];
-          document.getElementById('accountBal').innerHTML = balances;
-        })
+      web3.eth.getAccounts(function(err,r){
+        if (!err) {
+          myAddr = r[0];
+          document.getElementById('accountAddr').innerHTML = getLink(myAddr);
+        } else {
+          console.log(err);
+        }
       });
-
 
     }
 
