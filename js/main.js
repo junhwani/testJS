@@ -24,6 +24,11 @@ function startApp(){
 
   declaration = web3.eth.contract(abi).at(contractAddress);
 
+  web3.eth.getCoinbase(function(e, address){
+    document.getElementById("accountAddr").innerHTML = address;
+  });
+
+/*
   web3.eth.getAccounts(function(e,address){
     myAddr = address[0];
 
@@ -38,5 +43,6 @@ function startApp(){
     });
 
   });
+  */
 
 }
