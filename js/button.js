@@ -47,5 +47,5 @@ btn_json.onclick = function(){
   var value = JSON.parse(myJson);
 
 
-  alert(value);
+  alert(value.result);
 }
