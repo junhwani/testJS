@@ -48,7 +48,7 @@ btn_json.onclick = function(){
     "params":[],
     "id":67
   };
-  var version = JSON.parse(data);
+  var version = JSON.stringfy(data);
 
-  alert(version);
+  console.log(version);
 }
