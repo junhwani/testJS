@@ -43,8 +43,6 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-  onload=function()
-{
    var rpc = new JRpc("/math/", function(isOk, err) {
       if(isOk) {
          rpc.math.add(function(isOk, response) {
@@ -55,5 +53,5 @@ btn_json.onclick = function(){
       }
       else alert(err);
    });
-};
+
 }
