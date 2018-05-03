@@ -43,7 +43,7 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-  var myJson = '{"result":true, "count":1}';
+  var myJson = '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}';
   var value = JSON.parse(myJson);
 
 
