@@ -29,7 +29,7 @@ btn_send.onclick = function(){
   web3.eth.sendTransaction({
     from: base,
     to: address,
-    value: '1000000000000000'
+    value: eth*10000000000000000
   }, function(e, r){
     alert(r);
   });
