@@ -43,6 +43,9 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
+  var myJson = '{"result":true, "count":1}';
+  var value = JSON.parse(myJson);
 
-  alert("hello");
+
+  alert(value.result);
 }
