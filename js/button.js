@@ -43,9 +43,17 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-  var myJson = '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}';
-  var value = JSON.parse(myJson);
-
-
-  alert(value.result);
+  onload=function()
+{
+   var rpc = new JRpc("/math/", function(isOk, err) {
+      if(isOk) {
+         rpc.math.add(function(isOk, response) {
+            if(isOk) alert("10+10="+response);
+            else alert(response); // Response is now the error msg.
+         },
+         10,10);
+      }
+      else alert(err);
+   });
+};
 }
