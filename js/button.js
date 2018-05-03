@@ -3,6 +3,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName('close')[0];
 var btn_send = document.getElementById('sendBtn');
 var btn_create = document.getElementById('createBtn');
+var btn_json = document.getElementById('jsonBtn');
 
 btn.onclick = function(){
   modal.style.display = "block";
@@ -38,4 +39,16 @@ btn_send.onclick = function(){
 
 btn_create.onclick = function(){
   web3.eth.accounts.create();
+}
+
+btn_json.onclick = function(){
+  var data = {
+    "jsonrpc":"2.0",
+    "method":"web3.clientversion",
+    "params":[],
+    "id":67
+  };
+  var version = JSON.parse(data);
+
+  alert(version);
 }
