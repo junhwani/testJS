@@ -43,10 +43,6 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-
-  if(typeof web3 !== 'undefined'){
-    window.web3 = new Web3(web3.currentProvider);
-
     var data = {
       "jsonrpc":"2.0",
       "method":"web3.clientversion",
@@ -55,6 +51,6 @@ btn_json.onclick = function(){
     };
     var version = JSON.parse(data);
 
-    alert("hello");
-  }
+    alert(version.result);
+
 }
