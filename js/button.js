@@ -43,12 +43,6 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-  var data = '{
-    "a":true
-    "b":1
-  }';
-  var version = JSON.parse(data);
 
-
-  alert(version.a);
+  alert("hello");
 }
