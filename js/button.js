@@ -18,8 +18,19 @@ window.onclick = function(event){
 }
 
 btn_send.onclick = function(){
+  var base;
   var address = document.getElementById('receive_address').value;
   var eth = document.getElementById('ethAmount').value;
 
-  alert(address + ", " + eth);
+  web3.eth.getCoinbase(function(e,r){
+    base = r;
+  });
+
+  web3.eth.sendTransaction({
+    from: base,
+    to: address,
+    value: '1000000000000000'
+  }, function(e, r){
+    alert(r);
+  });
 }
