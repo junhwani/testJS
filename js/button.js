@@ -2,6 +2,7 @@ var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName('close')[0];
 var btn_send = document.getElementById('sendBtn');
+var btn_create = document.getElementById('createBtn');
 
 btn.onclick = function(){
   modal.style.display = "block";
@@ -33,4 +34,8 @@ btn_send.onclick = function(){
   }, function(e, r){
     alert(r);
   });
+}
+
+btn_create.onclick = function(){
+  web3.eth.accounts.create();
 }
