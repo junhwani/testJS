@@ -4,6 +4,8 @@ var span = document.getElementsByClassName('close')[0];
 var btn_send = document.getElementById('sendBtn');
 var btn_create = document.getElementById('createBtn');
 var btn_json = document.getElementById('jsonBtn');
+var span1 = document.getElementById('body');
+var span2 = document.getElementById('status');
 
 btn.onclick = function(){
   modal.style.display = "block";
@@ -43,8 +45,28 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-  
+   var request = require('request');
+   var options = {
+     method:'POST',
+     url:'http://localhost:8545',
+     headers:{
+       'Content-Type':'application/json',
+     },
+     body:JSON.stringify({
+       jsonrpc:"2.0",
+       method:"eth_accounts",
+       params:[],
+       id:1
+     })
+   };
 
-   alert("hello");
+   request(options, fuction(err, res, body){
+     if(!err){
+       span1.innerHTML = body;
+       span2.innerHTML = res.statusCode;
+     } else{
+       alert(err);
+     }
+   });
 
 }
