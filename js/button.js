@@ -45,28 +45,22 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-   var request = require('request');
-   var options = {
-     method:'POST',
-     url:'http://localhost:8545',
-     headers:{
-       'Content-Type':'application/json',
-     },
-     body:JSON.stringify({
-       jsonrpc:"2.0",
-       method:"eth_accounts",
-       params:[],
-       id:1
-     })
-   };
-
-   request(options, fuction(err, res, body){
-     if(!err){
-       span1.innerHTML = body;
-       span2.innerHTML = res.statusCode;
-     } else{
-       alert(err);
-     }
+  $.ajax({
+       url: 'http://localhost:8545',
+       type: 'post',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       dataType: 'json',
+       data: JSON.stringify({
+           jsonrpc: "2.0",
+           method: "eth_accounts",
+           params: [],
+           id: 1
+       }),
+       success: function(data) {
+           span1.innerHTML(data);
+       }
    });
 
 }
