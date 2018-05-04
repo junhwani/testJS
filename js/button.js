@@ -56,7 +56,7 @@ $.ajax({
          id: 1
      }),
      success: function(data) {
-         span1.innerHTML(data);
+         alert(data);
      }
  });
 
