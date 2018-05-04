@@ -42,25 +42,26 @@ btn_send.onclick = function(){
 btn_create.onclick = function(){
   web3.eth.accounts.create();
 }
+$.ajax({
+     url: 'http://localhost:8545',
+     type: 'post',
+     headers: {
+         'Content-Type': 'application/json'
+     },
+     dataType: 'json',
+     data: JSON.stringify({
+         jsonrpc: "2.0",
+         method: "eth_accounts",
+         params: [],
+         id: 1
+     }),
+     success: function(data) {
+         span1.innerHTML(data);
+     }
+ });
 
 btn_json.onclick = function(){
 
-  $.ajax({
-       url: 'http://localhost:8545',
-       type: 'post',
-       headers: {
-           'Content-Type': 'application/json'
-       },
-       dataType: 'json',
-       data: JSON.stringify({
-           jsonrpc: "2.0",
-           method: "eth_accounts",
-           params: [],
-           id: 1
-       }),
-       success: function(data) {
-           span1.innerHTML(data);
-       }
-   });
+
 
 }
