@@ -48,8 +48,6 @@ btn_json.onclick = function(){
    var jsonobject = JSON.parse(employee);
    var jsonstring = JSON.stringify(jsonobject);
 
-   alert(jsonstring);
-
-
+   alert("hello");
 
 }
