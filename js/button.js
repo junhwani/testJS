@@ -43,15 +43,13 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-   var rpc = new JRpc("/math/", function(isOk, err) {
-      if(isOk) {
-         rpc.math.add(function(isOk, response) {
-            if(isOk) alert("10+10="+response);
-            else alert(response); // Response is now the error msg.
-         },
-         10,10);
-      }
-      else alert(err);
-   });
+   var employee = {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67};
+
+   var jsonobject = JSON.parse(employee);
+   var jsonstring = JSON.stringify(jsonobject);
+
+   alert(jsonstring);
+
+
 
 }
