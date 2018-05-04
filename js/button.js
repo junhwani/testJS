@@ -43,10 +43,7 @@ btn_create.onclick = function(){
 
 btn_json.onclick = function(){
 
-   var employee = {"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67};
-
-   var jsonobject = JSON.parse(employee);
-   var jsonstring = JSON.stringify(jsonobject);
+  
 
    alert("hello");
 
