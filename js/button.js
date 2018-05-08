@@ -67,5 +67,6 @@ btn_json.onclick = function(){
   web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 
   var newAccount = web3.personal.newAccount("123");
+  span1.innerHTML = newAccount;
 
 }
