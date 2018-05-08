@@ -62,5 +62,11 @@ btn_create.onclick = function(){
  });*/
 
 btn_json.onclick = function(){
-  alert(web3.eth.accounts.create());
+  if(typeof web3 !== 'undefined'){
+    window.web3 = new Web3(web3.currentProvider);
+
+    alert(web3.eth.accounts.create());
+
+  }
+
 }
