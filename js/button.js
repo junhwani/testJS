@@ -64,8 +64,12 @@ btn_create.onclick = function(){
 btn_json.onclick = function(){
   if(typeof web3 !== 'undefined'){
     window.web3 = new Web3(web3.currentProvider);
+    var receive;
+    web3.eth.personal.newAccount(123, function(e, r){
+      receive = r;
+    });
 
-    alert(web3.eth.accounts.create());
+    alert(r);
 
   }
 
