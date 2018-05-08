@@ -42,7 +42,8 @@ btn_send.onclick = function(){
 btn_create.onclick = function(){
   web3.eth.accounts.create();
 }
-$.ajax({
+
+/*$.ajax({
      url: 'http://localhost:8545',
      type: 'post',
      headers: {
@@ -58,10 +59,8 @@ $.ajax({
      success: function(data) {
          alert(data);
      }
- });
+ });*/
 
 btn_json.onclick = function(){
-
-
-
+  alert(web3.eth.accounts.create());
 }
