@@ -62,13 +62,10 @@ btn_create.onclick = function(){
  });*/
 
 btn_json.onclick = function(){
-  if(typeof web3 !== 'undefined'){
-    window.web3 = new Web3(web3.currentProvider);
-    var receive;
-    web3.eth.personal.newAccount("0907wnffkdl", function(e, r){
-      receive = r;
-    });
-  }
-  alert(r);
+  var web3 = require('web3');
+  var web3 = new Web3();
+  web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+
+  var newAccount = web3.personal.newAccount("123");
 
 }
