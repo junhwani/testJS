@@ -68,9 +68,7 @@ btn_json.onclick = function(){
     web3.eth.personal.newAccount("0907wnffkdl", function(e, r){
       receive = r;
     });
-
-    alert(r);
-
   }
+  alert(r);
 
 }
