@@ -62,11 +62,17 @@ btn_create.onclick = function(){
  });*/
 
 btn_json.onclick = function(){
-  var web3 = require('web3');
-  var web3 = new Web3();
-  web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+  var web3;
 
-  var newAccount = web3.personal.newAccount("123");
-  console.log(newAccount);
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        if(!web3.isConnected()) {
+            console.log('not-connected');
+        } else {
+           console.log('connected');
+        }
 
 }
