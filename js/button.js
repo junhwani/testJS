@@ -44,6 +44,7 @@ btn_create.onclick = function(){
 }
 
 $.ajax({
+     crossOrigin: true,
      url: 'http://localhost:8545',
      type: 'post',
      headers: {
