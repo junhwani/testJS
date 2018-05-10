@@ -60,7 +60,7 @@ $(document).ready(function(){
            id: 1
        }),
        success: function(data) {
-           console.log(data);
+           console.log("hello");
        }
    });
 });
