@@ -48,10 +48,7 @@ $(document).ready(function(){
   $.ajax({
        crossOrigin: true,
        url: 'http://localhost:8545',
-       type: 'post',
-       headers: {
-           'Content-Type': 'application/json'
-       },
+       type: 'POST',
        dataType: 'json',
        data: JSON.stringify({
            jsonrpc: "2.0",
@@ -61,6 +58,14 @@ $(document).ready(function(){
        }),
        success: function(data) {
            console.log("hello");
+       },
+       error: function(err,status,thrown){
+         alert("error");
+       },
+       complete: function(xhr, status){
+         alert("Complete" + status);
+         data = $.parseJSON(xhr, responseText);
+         alert(data);
        }
    });
 });
