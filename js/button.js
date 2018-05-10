@@ -43,24 +43,28 @@ btn_create.onclick = function(){
   web3.eth.accounts.create();
 }
 
-$.ajax({
-     crossOrigin: true,
-     url: 'http://localhost:8545',
-     type: 'post',
-     headers: {
-         'Content-Type': 'application/json'
-     },
-     dataType: 'json',
-     data: JSON.stringify({
-         jsonrpc: "2.0",
-         method: "eth_accounts",
-         params: [],
-         id: 1
-     }),
-     success: function(data) {
-         console.log(data);
-     }
- });
+
+$(document).ready(function(){
+  $.ajax({
+       crossOrigin: true,
+       url: 'http://localhost:8545',
+       type: 'post',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       dataType: 'json',
+       data: JSON.stringify({
+           jsonrpc: "2.0",
+           method: "eth_accounts",
+           params: [],
+           id: 1
+       }),
+       success: function(data) {
+           console.log(data);
+       }
+   });
+});
+
 
 
 btn_json.onclick = function(){
