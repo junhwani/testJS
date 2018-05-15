@@ -495,7 +495,7 @@ var explorer = "https://etherscan.io";
       console.log("Name:"+strName);
     });
 
-    var balance = await declaration.methods.balanceOf(contractAddress).call();
+    var balance = declaration.methods.balanceOf(contractAddress).call();
     console.log(Number.parseFloat(balance / 1e3).toFixed(3));
 
     startApp();
