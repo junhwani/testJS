@@ -47,7 +47,7 @@ btn_create.onclick = function(){
 $(document).ready(function(){
   $.ajax({
        crossOrigin: true,
-       url: 'http://localhost:8545',
+       url: 'https://127.0.0.1:8545',
        type: 'POST',
        dataType: 'json',
        data: JSON.stringify({
@@ -78,7 +78,7 @@ btn_json.onclick = function(){
         if (typeof web3 !== 'undefined') {
             web3 = new Web3(web3.currentProvider);
         } else {
-            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
         }
         if(!web3.isConnected()) {
             console.log('not-connected');
