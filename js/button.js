@@ -54,7 +54,7 @@ btn_json.onclick = function(){
 
     var cont = web3.eth.contract(contract, abi);
 
-    console.log(cont.call().getNumber());
+    console.log(cont.getSoldToken());
   }
 
 }
