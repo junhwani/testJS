@@ -19,7 +19,8 @@ var explorer = "https://etherscan.io";
       console.log("Name:"+strName);
     });
 
-    console.log(declaration.call().getNumber());
+    var balance = declaration.methods.balanceOf(contractAddress).call();
+    console.log(Number.parseFloat(balance / 1e3).toFixed(3));
 
     startApp();
 
