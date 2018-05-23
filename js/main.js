@@ -14,10 +14,6 @@ var explorer = "https://etherscan.io";
 
     declaration = web3.eth.contract(abi).at(contractAddress);
 
-
-    var balance = declaration.methods.balanceOf(contractAddress).call();
-    console.log(Number.parseFloat(balance / 1e3).toFixed(3));
-
     startApp();
 
 

@@ -52,7 +52,7 @@ btn_json.onclick = function(){
   if(typeof web3 !== 'undefined'){
     window.web3 = new Web3(web3.currentProvider);
 
-    var cont = web3.eth.contract(abi).at(contract);
+    var cont = web3.eth.contract(contract, abi);
 
     console.log(cont.call().getNumber());
   }
